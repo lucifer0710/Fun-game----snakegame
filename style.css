@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    touch-action: none;
+    background-color: #000000;
+    overflow: hidden;
+}
+
+.pixel-font {
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Neon Glow Effects */
+.neon-text {
+    text-shadow: 0 0 5px #4ade80, 0 0 10px #4ade80;
+}
+
+#game-container {
+    transition: transform 0.1s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+#game-canvas {
+    image-rendering: pixelated;
+    box-shadow: 0 0 20px rgba(72, 208, 90, 0.2);
+}
+
+/* Shake Animation Class */
+.shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-4px, 0, 0); }
+    20%, 80% { transform: translate3d(6px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-8px, 0, 0); }
+    40%, 60% { transform: translate3d(8px, 0, 0); }
+}

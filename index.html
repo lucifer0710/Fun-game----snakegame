@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Snake Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="h-screen w-screen flex flex-col items-center justify-center text-white">
+
+    <!-- Header / Score Board -->
+    <div class="absolute top-4 w-full max-w-md flex justify-between px-6 z-10 select-none pointer-events-none">
+        <div class="flex flex-col items-center">
+            <span class="text-xs text-slate-400 uppercase tracking-wider">Score</span>
+            <span id="score" class="pixel-font text-xl text-green-400 neon-text">0</span>
+        </div>
+        <div class="flex flex-col items-center">
+            <span class="text-xs text-slate-400 uppercase tracking-wider">High Score</span>
+            <span id="high-score" class="pixel-font text-xl text-yellow-400">0</span>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div id="game-container" class="relative bg-black rounded-lg border-4 border-slate-700 p-1 shadow-2xl">
+        <canvas id="game-canvas" class="bg-black rounded block cursor-pointer"></canvas>
+        
+        <!-- Start / Game Over Overlay -->
+        <div id="overlay" class="absolute inset-0 flex flex-col items-center justify-center bg-black/90 z-20 rounded backdrop-blur-sm transition-opacity duration-300">
+            <h1 class="pixel-font text-4xl text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-400 mb-6 neon-text text-center leading-tight">SNAKE<br>GAME</h1>
+            
+            <div id="start-msg" class="text-center animate-pulse">
+                <p class="text-lg mb-2 font-bold text-white">Press Enter or Space to Start</p>
+                <div class="text-slate-400 text-sm flex items-center gap-4 justify-center mt-4">
+                    <span class="flex items-center gap-1">
+                        <!-- Up Arrow -->
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+                        <!-- Left Arrow -->
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        <!-- Down Arrow -->
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        <!-- Right Arrow -->
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        Move
+                    </span>
+                </div>
+            </div>
+
+            <div id="game-over-msg" class="hidden text-center">
+                <p class="pixel-font text-red-500 text-2xl mb-4 neon-text">GAME OVER</p>
+                <button id="restart-btn" class="px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all transform active:scale-95">
+                    Try Again
+                </button>
+            </div>
+
+            <div id="pause-msg" class="hidden text-center">
+                <p class="pixel-font text-yellow-400 text-2xl mb-4 neon-text">PAUSED</p>
+                <p class="text-sm text-slate-400">Press P to Resume</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
