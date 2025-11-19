@@ -50,12 +50,3 @@ Since this project uses vanilla JavaScript and a Tailwind CDN, **no build step o
 ### Mobile
 * **Swipe** (Up, Down, Left, Right) to change direction.
 * **Tap** the screen to start the game.
-
-## 📂 Project Structure
-
-```text
-/
-├── index.html      # Main HTML structure and Tailwind CDN import
-├── style.css       # Custom styles, fonts, and animations
-├── game.js         # Game logic, canvas rendering, and audio synthesis
-└── README.md       # Project documentation
